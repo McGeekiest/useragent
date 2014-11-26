@@ -6,9 +6,10 @@ require 'user_agent/version'
 class UserAgent
   # http://www.texsoft.it/index.php?m=sw.php.useragent
   MATCHER = %r{
-    ^([^/\s]+)        # Product
-    /?([^\s]*)        # Version
-    (\s\(([^\)]*)\))? # Comment
+    ^['"]*             # Possible opening quote(s)
+    ([^/\s]+)          # Product
+    /?([^\s]*)         # Version
+    (\s\(([^\)]*)\))?  # Comment
   }x.freeze
 
   DEFAULT_USER_AGENT = "Mozilla/4.0 (compatible)"
